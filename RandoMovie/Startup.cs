@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RandoMovie.Service;
+using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace RandoMovie
 {
@@ -19,13 +22,16 @@ namespace RandoMovie
             configuration = Configuration;
         }
         public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+            
 
-            services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddControllers();
+            
 
             services.AddTransient<IMovieService>(m => new MovieService());
         }
@@ -41,11 +47,16 @@ namespace RandoMovie
             {
                 app.UseHsts();
             }
+            app.UseRouting();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseMvc();
-            
-            
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+
         }
     }
 }

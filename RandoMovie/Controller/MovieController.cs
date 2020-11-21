@@ -8,8 +8,9 @@ using RandoMovie.Service;
 
 namespace RandoMovie.Controller
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
+   
     public class MovieController :ControllerBase
     {
         private readonly IMovieService movieService;
@@ -29,7 +30,7 @@ namespace RandoMovie.Controller
                 
                 
                     movie = movieService.GetMovie();
-
+                
                 
                 
                 return movie;
