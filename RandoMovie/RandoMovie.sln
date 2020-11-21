@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandoMovie", "RandoMovie.csproj", "{E570A5A5-CC6E-4929-94E9-7B320485E45F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E570A5A5-CC6E-4929-94E9-7B320485E45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E570A5A5-CC6E-4929-94E9-7B320485E45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E570A5A5-CC6E-4929-94E9-7B320485E45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E570A5A5-CC6E-4929-94E9-7B320485E45F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84BB47CA-8F73-4298-8963-2A720C6EEECF}
+	EndGlobalSection
+EndGlobal
