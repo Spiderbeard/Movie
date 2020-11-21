@@ -6,7 +6,7 @@ using RandoMovie.Model;
 
 namespace RandoMovie.Service
 {
-    interface IMovieService
+    public interface IMovieService
     {
         Movie GetMovie();
     }
