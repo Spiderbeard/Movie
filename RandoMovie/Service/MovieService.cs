@@ -19,8 +19,8 @@ namespace RandoMovie.Service
             
 
                 int randomId = RandomKeyGenerator();
-                RestRequest request = new RestRequest(API_URL + randomId + API_KEY);
-                IRestResponse<Movie> response = client.Get<Movie>(request);
+                RestRequest request = new RestRequest(API_URL+randomId+API_KEY);
+                IRestResponse <Movie> response = client.Get<Movie>(request);
                 if (response.ResponseStatus != ResponseStatus.Completed)
                 {
                     throw new HttpRequestException("Could Not Contact Server");
