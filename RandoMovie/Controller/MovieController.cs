@@ -33,7 +33,7 @@ namespace RandoMovie.Controller
                     movie = movieService.GetMovie();
 
                 }
-                while (movie.Response == false);
+                while (movie.Type != "movie");
                 
                 return movie;
 
