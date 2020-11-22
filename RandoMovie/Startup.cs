@@ -17,6 +17,7 @@ namespace RandoMovie
 {
     public class Startup
     {
+        readonly string MyAllowedSpecificOrigins = "_MyAllowedSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             configuration = Configuration;
@@ -28,7 +29,15 @@ namespace RandoMovie
         [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowedSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://127.0.0.1:5501");
+                                                          
+                                  });
+            });
 
             services.AddControllers();
             
@@ -50,6 +59,7 @@ namespace RandoMovie
             app.UseRouting();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using RandoMovie.Model;
 using RandoMovie.Service;
@@ -10,6 +11,7 @@ namespace RandoMovie.Controller
 {
     [ApiController]
     [Route("[controller]")]
+    [DisableCors]
    
     public class MovieController :ControllerBase
     {
@@ -35,7 +37,7 @@ namespace RandoMovie.Controller
                 }
                 while (movie.Type != "movie");
                 
-                return movie;
+                return Ok(movie);
 
             }
             catch(Exception e)
