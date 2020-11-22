@@ -11,7 +11,7 @@ namespace RandoMovie.Service
     public class MovieService : IMovieService
     {
         private readonly string API_URL = @"http://www.omdbapi.com/?i=tt";
-        private readonly string API_KEY = "&apikey=623b69b9";
+        private readonly string API_KEY = ""; //Your API KEY Here
         private readonly RestClient client = new RestClient();
         public Movie GetMovie()
         {
