@@ -11,7 +11,7 @@ namespace RandoMovie.Controller
 {
     [ApiController]
     [Route("[controller]")]
-    [DisableCors]
+   
    
     public class MovieController :ControllerBase
     {
@@ -35,7 +35,7 @@ namespace RandoMovie.Controller
                     movie = movieService.GetMovie();
 
                 }
-                while (movie.Type != "movie");
+                while (movie.Response == false);
                 
                 return Ok(movie);
 

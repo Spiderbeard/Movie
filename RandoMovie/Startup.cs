@@ -59,7 +59,8 @@ namespace RandoMovie
             app.UseRouting();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseCors();
+            app.UseCors(
+               options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
