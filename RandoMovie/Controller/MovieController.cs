@@ -29,13 +29,12 @@ namespace RandoMovie.Controller
             {
                 Movie movie = new Movie();
 
-                do
-                {
 
-                    movie = movieService.GetMovie();
 
-                }
-                while (movie.Response == false);
+
+                movie = movieService.GetMovie();
+
+               
                 
                 return Ok(movie);
 

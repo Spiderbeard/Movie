@@ -10,8 +10,9 @@ namespace RandoMovie.Service
 {
     public class MovieService : IMovieService
     {
-        private readonly string API_URL = @"http://www.omdbapi.com/?i=tt";
-        private readonly string API_KEY = ""; //Your API KEY Here
+        private readonly string API_URL = @"https://api.themoviedb.org/3/discover/movie?";
+        private readonly string API_KEY = "api_key=dccfee49b51c9f127385b7350d087118&";
+        private readonly string API_SEARCH = "&language=en-US&sort_by=vote_count.desc&page=";
         private readonly RestClient client = new RestClient();
         public Movie GetMovie()
         {
@@ -19,8 +20,8 @@ namespace RandoMovie.Service
             
 
                 int randomId = RandomKeyGenerator();
-                RestRequest request = new RestRequest(API_URL+randomId+API_KEY);
-                IRestResponse <Movie> response = client.Get<Movie>(request);
+                RestRequest request = new RestRequest(API_URL+API_KEY+API_SEARCH+randomId);
+                IRestResponse<Movie> response = client.Get<Movie>(request);
                 if (response.ResponseStatus != ResponseStatus.Completed)
                 {
                     throw new HttpRequestException("Could Not Contact Server");
@@ -40,7 +41,7 @@ namespace RandoMovie.Service
         private int RandomKeyGenerator()
         { 
             Random random = new Random();
-            int randomId = random.Next(0000000, 9999999);
+            int randomId = random.Next(0,500);
             return randomId;
         }
     }
